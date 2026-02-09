@@ -24,4 +24,4 @@ Generate a tailored resume optimized for a specific job description using your a
 **Get started by selecting a page from the sidebar →**
 """)
 
-st.info("💡 Tip: Upload your resume once, then use it across both tools!")
+st.info("💡 Tip: Upload your resume if you dont have any accomplishment document")

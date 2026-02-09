@@ -1,15 +1,17 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="Career Coach Nautilos",
+    page_title="AI Career Strategist Nautilos",
     page_icon="🧭",
     layout="wide"
 )
 
-st.title("🧭 Career Coach Nautilos")
+st.title("🧭 AI Career Strategist Nautilos")
 
 st.markdown("""
 ## Welcome to Nautilos - Your AI Career Navigator
+            
+            Decide which jobs are worth applying to! 
 
 Choose a tool from the sidebar:
 

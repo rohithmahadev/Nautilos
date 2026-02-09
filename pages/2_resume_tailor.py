@@ -236,6 +236,7 @@ if st.button("Submit"):
             
             st.session_state.tailored_resume = json_parser.parse(res_tailor.content)
             st.success("✅ Resume tailored successfully!")
+            st.write("The attached document contains optimized bullet points based on your resume and job description")
         
         # Generate Word document (STILL INSIDE the button block)
         doc_file = generate_resume_docx(st.session_state.tailored_resume)

@@ -32,6 +32,9 @@ if 'json_parsed_pdf_data' not in st.session_state:
 if 'json_parsed_final_output' not in st.session_state:
     st.session_state.json_parsed_final_output = None
 
+
+if "page_data" not in st.session_state:
+    st.session_state.page_data = None
 # Set env var from Streamlit secrets
 os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
 
@@ -40,7 +43,7 @@ llm = ChatGroq(
     temperature=0,
 )
 
-st.title("Career Coach Nautilos V1.0")
+st.title("Career Coach Nautilos")
 
 
 
@@ -212,3 +215,30 @@ if st.button("Submit"):
     st.info(f"**💡 Recommendation:** {results['Advice'],results['Recommendation']}")
 
 
+
+    st.write("Check if the JD is BS or not!")
+
+    if st.button("Check for BS!"):
+            # Convert list of Documents to plain text
+            extracted_text = " ".join([doc.page_content for doc in st.session_state.page_data])
+            prompt_jd_eval = PromptTemplate.from_template(
+                        """
+                        ## Job Description
+                        {Extracted_job_text}
+
+                        You are a smart engine who finds gaps in this job description. 
+                        Check whether the job expectations are realistic and align with the skills required section.
+
+                        Return a concise plain-text summary highlighting any gaps or unrealistic expectations. Make it simple and give a final verdict of whether this is BS or NOT
+                        """
+                    )
+
+                    # Create chain
+            chain_extract_job_eval = prompt_jd_eval | llm
+
+                
+            res_matching_job_eval = chain_extract_job_eval.invoke(
+                        input = {"Extracted_job_text":extracted_text}
+                    )
+
+            st.write(res_matching_job_eval.content)

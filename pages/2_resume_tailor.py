@@ -79,6 +79,8 @@ prompt_extract_career = PromptTemplate.from_template(
 
 Only return the valid JSON file.
 
+## Note: if the job description is not provided due to a Cloudflare block return "None" in all places
+
 ### Valid JSON Format without any preamble
  
  """ 

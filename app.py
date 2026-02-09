@@ -11,7 +11,7 @@ st.title("🧭 AI Career Strategist Nautilos")
 st.markdown("""
 ## Welcome to Nautilos - Your AI Career Navigator
             
-            Decide which jobs are worth applying to! 
+#### Decide which jobs are worth applying to! 
 
 Choose a tool from the sidebar:
 

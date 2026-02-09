@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+langchain-community
+langchain-groq
+langchain-core
+python-dotenv
+groq
+pypdf
+python-docx

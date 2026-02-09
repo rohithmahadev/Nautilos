@@ -24,11 +24,14 @@ from utils import parsing_pdf, accomplishments_pdf
 load_dotenv()
 
 
-os.getenv("GROQ_API_KEY")
+import streamlit as st
+
+# Set env var from Streamlit secrets
+os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
+
 llm = ChatGroq(
     model="llama-3.1-8b-instant",
     temperature=0,
-   
 )
 
 uploaded_pdf_file = st.file_uploader("Upload a PDF version of your resume",

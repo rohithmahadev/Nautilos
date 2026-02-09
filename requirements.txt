@@ -8,3 +8,5 @@ python-dotenv
 groq
 pypdf
 python-docx
+beautifulsoup4
+lxml

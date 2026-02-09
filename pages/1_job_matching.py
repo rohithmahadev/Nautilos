@@ -32,13 +32,12 @@ if 'json_parsed_pdf_data' not in st.session_state:
 if 'json_parsed_final_output' not in st.session_state:
     st.session_state.json_parsed_final_output = None
 
+# Set env var from Streamlit secrets
+os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
 
-
-os.getenv("GROQ_API_KEY")
 llm = ChatGroq(
     model="llama-3.1-8b-instant",
     temperature=0,
-   
 )
 
 st.title("Career Coach Nautilos V1.0")
